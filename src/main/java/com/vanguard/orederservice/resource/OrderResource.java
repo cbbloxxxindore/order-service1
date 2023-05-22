@@ -2,7 +2,7 @@ package com.vanguard.orederservice.resource;
 
 import com.vanguard.orederservice.models.Order;
 import com.vanguard.orederservice.service.OrderService;
-import jakarta.ws.rs.POST;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,7 +19,7 @@ private OrderService orderService;
     @PostMapping("/orders")
     public ResponseEntity<Order> createOrder( @RequestBody Order order )
     {
-
-        return  ResponseEntity.ok(order);
+        Order order1=orderService.saveOrder(order    );
+        return  ResponseEntity.ok(order1);
     }
 }
